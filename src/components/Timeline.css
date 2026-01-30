@@ -1,0 +1,171 @@
+.timeline-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+}
+
+/* Intro section */
+.timeline-intro {
+  padding: 2rem 2rem 1rem;
+  max-width: 600px;
+}
+
+.timeline-intro h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+}
+
+.intro-text {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.scroll-hint {
+  color: var(--color-dimmed);
+}
+
+/* Timeline container */
+.timeline-container {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2rem 0;
+  scrollbar-width: thin;
+}
+
+.timeline-track {
+  display: flex;
+  align-items: flex-start;
+  padding: 2rem;
+  padding-left: 2rem;
+  padding-right: 4rem;
+  min-width: max-content;
+  position: relative;
+}
+
+/* Horizontal line */
+.timeline-line {
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+  right: 2rem;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-muted) 50px,
+    var(--color-muted) calc(100% - 50px),
+    transparent
+  );
+}
+
+/* Month groupings */
+.timeline-month {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.timeline-month.multiple {
+  gap: 0;
+}
+
+.timeline-month.multiple .timeline-node {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.timeline-month.multiple .timeline-node:first-child {
+  padding-top: 1rem;
+}
+
+.timeline-month.multiple .timeline-node:not(:first-child) .node-dot {
+  display: none;
+}
+
+/* Legend */
+.timeline-legend {
+  display: flex;
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-text);
+}
+
+.legend-dot.course {
+  background-color: var(--color-accent);
+}
+
+.legend-dot.future {
+  background-color: transparent;
+  border: 1px solid var(--color-muted);
+  opacity: 0.5;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .timeline-page {
+    padding-top: 80px;
+  }
+
+  .timeline-intro {
+    padding: 1.5rem;
+  }
+
+  .timeline-intro h1 {
+    font-size: 1.5rem;
+  }
+
+  .intro-text {
+    font-size: 0.8rem;
+  }
+
+  .scroll-hint {
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  .timeline-track {
+    padding: 1.5rem;
+  }
+
+  .timeline-line {
+    top: 2.5rem;
+  }
+
+  .timeline-legend {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* Vertical layout for mobile (optional) */
+@media (max-width: 480px) {
+  .timeline-container {
+    overflow-x: auto;
+  }
+
+  .scroll-hint {
+    display: block;
+  }
+}
