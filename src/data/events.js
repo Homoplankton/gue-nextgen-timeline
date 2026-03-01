@@ -1,4 +1,3 @@
-// Centralized event data for the GUE NextGen Scholar timeline
 export const events = [
   {
     id: 'gue-fundamentals',
@@ -109,7 +108,7 @@ export const events = [
   },
   {
     id: 'blackwater-drysuit-doubles',
-    title: 'Blackwater with Drysuit and Doubles',
+    title: 'Blackwater with Drysuit and Double Tanks',
     date: '2025-12',
     displayDate: 'December 2025',
     type: 'trip',
@@ -136,6 +135,7 @@ export const events = [
     displayDate: 'January 2026',
     type: 'trip',
     status: 'completed',
+    externalUrl: 'https://homoplankton.github.io/Newbie-s-Ultimate-Guide-to-Polar-Diving/#',
     description: 'Expedition diving in the Southern Ocean, exploring ice formations, marine life, and the most remote diving destination on Earth.',
     sections: {
       equipment: [
@@ -153,10 +153,8 @@ export const events = [
   }
 ];
 
-// Helper function to get event by ID
 export const getEventById = (id) => events.find(event => event.id === id);
 
-// Helper function to get events sorted by date
 export const getEventsSortedByDate = () => {
   return [...events].sort((a, b) => {
     const dateA = new Date(a.date + '-01');
@@ -165,7 +163,6 @@ export const getEventsSortedByDate = () => {
   });
 };
 
-// Helper function to get adjacent events for navigation
 export const getAdjacentEvents = (currentId) => {
   const sorted = getEventsSortedByDate();
   const currentIndex = sorted.findIndex(e => e.id === currentId);
@@ -175,17 +172,14 @@ export const getAdjacentEvents = (currentId) => {
   };
 };
 
-// Group events by month for timeline display
 export const getEventsGroupedByMonth = () => {
   const sorted = getEventsSortedByDate();
   const grouped = {};
-
   sorted.forEach(event => {
     if (!grouped[event.date]) {
       grouped[event.date] = [];
     }
     grouped[event.date].push(event);
   });
-
   return grouped;
 };

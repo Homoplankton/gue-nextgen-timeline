@@ -1,7 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import './BlogSection.css';
 
-// Sample blog posts data - can be moved to a separate data file later
 const blogPosts = [
   {
     id: 'why-gue',

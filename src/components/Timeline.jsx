@@ -8,15 +8,13 @@ function Timeline() {
   const groupedEvents = getEventsGroupedByMonth();
   const months = Object.keys(groupedEvents).sort();
 
-  // Restore scroll position from localStorage
   useEffect(() => {
-    const savedPosition = localStorage.getItem('timelineScrollPosition');
-    if (savedPosition && timelineRef.current) {
-      timelineRef.current.scrollLeft = parseInt(savedPosition, 10);
+    const saved = localStorage.getItem('timelineScrollPosition');
+    if (saved && timelineRef.current) {
+      timelineRef.current.scrollLeft = parseInt(saved, 10);
     }
   }, []);
 
-  // Save scroll position on scroll
   const handleScroll = () => {
     if (timelineRef.current) {
       localStorage.setItem('timelineScrollPosition', timelineRef.current.scrollLeft.toString());
@@ -37,15 +35,18 @@ function Timeline() {
         <div className="timeline-track">
           <div className="timeline-line" />
 
-          {months.map((month, index) => {
+          {months.map((month) => {
             const eventsInMonth = groupedEvents[month];
             const hasMultiple = eventsInMonth.length > 1;
 
             return (
               <div key={month} className={`timeline-month ${hasMultiple ? 'multiple' : ''}`}>
                 {eventsInMonth.map((event) => (
-                  <TimelineNode key={event.id} event={event} />
+                  <TimelineNode key={event.id} event={event} hideDate={hasMultiple} />
                 ))}
+                {hasMultiple && (
+                  <span className="month-date">{eventsInMonth[0].displayDate}</span>
+                )}
               </div>
             );
           })}

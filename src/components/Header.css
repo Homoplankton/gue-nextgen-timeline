@@ -8,7 +8,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background: linear-gradient(to bottom, var(--color-bg) 0%, var(--color-bg) 70%, transparent 100%);
+  background: linear-gradient(to bottom, var(--color-bg) 0%, var(--color-bg) 60%, transparent 100%);
 }
 
 .header-logo {
@@ -44,10 +44,9 @@
   font-size: 0.875rem;
 }
 
-/* Mobile responsive */
 @media (max-width: 640px) {
   .header {
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.25rem;
   }
 
   .header-logo {

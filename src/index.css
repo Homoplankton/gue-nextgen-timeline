@@ -1,4 +1,3 @@
-/* Global styles for GUE NextGen Scholar Website */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -7,7 +6,8 @@
   --color-accent: #FFFF00;
   --color-muted: #808080;
   --color-dimmed: rgba(255, 255, 255, 0.5);
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', 'Monaco', 'Courier New', monospace;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;
 }
 
 * {
@@ -34,30 +34,20 @@ body {
   min-height: 100vh;
 }
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 500;
   letter-spacing: -0.02em;
 }
 
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 1.75rem;
-}
-
-h3 {
-  font-size: 1.25rem;
-}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.25rem; }
 
 p {
   margin: 0 0 1rem 0;
 }
 
-/* Links */
 a {
   color: var(--color-text);
   text-decoration: none;
@@ -68,7 +58,6 @@ a:hover {
   color: var(--color-accent);
 }
 
-/* Buttons */
 button {
   font-family: var(--font-mono);
   background: transparent;
@@ -90,10 +79,9 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
+  height: 6px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -101,25 +89,15 @@ button:disabled {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-muted);
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text);
+  background: var(--color-muted);
 }
 
-/* Selection */
 ::selection {
   background: var(--color-accent);
   color: var(--color-bg);
-}
-
-/* Utility classes */
-.accent {
-  color: var(--color-accent);
-}
-
-.muted {
-  color: var(--color-muted);
 }

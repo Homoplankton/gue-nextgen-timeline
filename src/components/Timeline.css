@@ -5,7 +5,6 @@
   padding-top: 100px;
 }
 
-/* Intro section */
 .timeline-intro {
   padding: 2rem 2rem 1rem;
   max-width: 600px;
@@ -28,7 +27,6 @@
   color: var(--color-dimmed);
 }
 
-/* Timeline container */
 .timeline-container {
   flex: 1;
   overflow-x: auto;
@@ -41,13 +39,11 @@
   display: flex;
   align-items: flex-start;
   padding: 2rem;
-  padding-left: 2rem;
   padding-right: 4rem;
   min-width: max-content;
   position: relative;
 }
 
-/* Horizontal line */
 .timeline-line {
   position: absolute;
   top: 3rem;
@@ -63,7 +59,6 @@
   );
 }
 
-/* Month groupings */
 .timeline-month {
   display: flex;
   flex-direction: column;
@@ -88,12 +83,17 @@
   display: none;
 }
 
-/* Legend */
+.month-date {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin-top: 0.25rem;
+}
+
 .timeline-legend {
   display: flex;
   gap: 2rem;
   padding: 1.5rem 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--color-border);
 }
 
 .legend-item {
@@ -121,7 +121,6 @@
   opacity: 0.5;
 }
 
-/* Mobile responsive */
 @media (max-width: 768px) {
   .timeline-page {
     padding-top: 80px;
@@ -156,16 +155,5 @@
     flex-wrap: wrap;
     gap: 1rem;
     padding: 1rem 1.5rem;
-  }
-}
-
-/* Vertical layout for mobile (optional) */
-@media (max-width: 480px) {
-  .timeline-container {
-    overflow-x: auto;
-  }
-
-  .scroll-hint {
-    display: block;
   }
 }

@@ -1,21 +1,15 @@
 import { Link } from 'react-router-dom';
 import './TimelineNode.css';
 
-function TimelineNode({ event }) {
+function TimelineNode({ event, hideDate }) {
   const isCourse = event.type === 'course';
   const isFuture = event.status === 'future';
 
-  const getTypeLabel = (type) => {
-    switch (type) {
-      case 'course':
-        return 'COURSE';
-      case 'workshop':
-        return 'WORKSHOP';
-      case 'trip':
-        return 'TRIP';
-      default:
-        return type.toUpperCase();
-    }
+  const typeLabels = {
+    course: 'COURSE',
+    workshop: 'WORKSHOP',
+    trip: 'TRIP',
+    project: 'PROJECT',
   };
 
   return (
@@ -25,9 +19,9 @@ function TimelineNode({ event }) {
     >
       <div className={`node-dot ${isCourse ? 'course' : ''} ${isFuture ? 'future' : ''}`} />
       <div className="node-content">
-        <span className="node-type">{getTypeLabel(event.type)}</span>
+        <span className="node-type">{typeLabels[event.type] || event.type.toUpperCase()}</span>
         <h3 className="node-title">{event.title}</h3>
-        <span className="node-date">{event.displayDate}</span>
+        {!hideDate && <span className="node-date">{event.displayDate}</span>}
       </div>
     </Link>
   );
